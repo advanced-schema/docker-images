@@ -20,7 +20,7 @@ ln -s $ORACLE_BASE/scripts /docker-entrypoint-initdb.d && \
 mkdir $ORACLE_BASE/oradata && \
 chmod ug+x $ORACLE_BASE/*.sh && \
 yum -y update && \
-yum -y install oracle-rdbms-server-11gR2-preinstall unzip tar openssl && \
+yum -y install oracle-rdbms-server-11gR2-preinstall unzip tar openssl xz && \
 yum clean all && \
 echo oracle:oracle | chpasswd && \
 chown -R oracle:dba $ORACLE_BASE

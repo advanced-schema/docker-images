@@ -49,16 +49,8 @@ sed -i -e "s|###ORACLE_HOME###|$ORACLE_HOME|g" $INSTALL_DIR/$INSTALL_RSP
 
 # Install Oracle binaries
 cd $INSTALL_DIR       && \
-unzip $INSTALL_FILE_1 && \
+tar xf $INSTALL_FILE_1 && \
 rm $INSTALL_FILE_1    && \
-unzip $INSTALL_FILE_2 && \
-rm $INSTALL_FILE_2    && \
-(for patchidx in {1..7}; do 
-PATCHFILE=p13390677_112040_Linux-x86-64_${patchidx}of7.zip
-unzip -o $PATCHFILE && \
-rm $PATCHFILE
-done
-) &&
 $INSTALL_DIR/database/runInstaller -silent -force -waitforcompletion -responseFile $INSTALL_DIR/$INSTALL_RSP -ignoreSysPrereqs -ignorePrereq && \
 cd $HOME
 
